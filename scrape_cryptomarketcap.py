@@ -122,7 +122,7 @@ class CryptoMarketCap(object):
             row = 1
             col = 0
             worksheet = workbook.add_worksheet(key)
-            date_format = workbook.add_format({'num_format': 'mmmm d yyyy'})
+            date_format = workbook.add_format({'num_format': 'yyyy-mm-dd'})
             worksheet.write('A1', 'Date', bold)
             worksheet.write('B1', 'Name', bold)
             worksheet.write('C1', 'Market Cap', bold)
@@ -170,13 +170,7 @@ if __name__ == '__main__':
     cryptos_dict_path = '/Users/adriangarza/dev/scrape_crypto_site/cryptos.txt'
     cmc = CryptoMarketCap(url, args.OUTPUT_PATH)
     cmc.get_CryptoMarketCap()
-    cmc.write_to_path(cmc.cryptoMktCap)
+    # cmc.write_to_path(cmc.cryptoMktCap)
     # tickers = cmc.prep_tickers(cryptos_dict_path)
     # cmc.write_to_excel_file(tickers)
     cmc.append_data()
-
-    # set this up on your machine at home to run as a cron job at 11:59 pm everyday
-    # make sure to create your excel files first and then go a head and set up as cron job
-    # commenting out the correct lines to run first
-    
-
